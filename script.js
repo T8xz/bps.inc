@@ -89,6 +89,7 @@ function generateKendaraan(){
 
                 <input
                     type="text"
+                    inputmode="decimal"
                     class="hargaTransport">
             </div>
 
@@ -314,9 +315,7 @@ ${row("No Urut Keluarga", keluarga.value || "-")}
 
 ${row(
     "Pendapatan",
-    `${rupiah(nominal)} / ${periode.options[periode.selectedIndex].text.replace("Per ","")}`
-)}
-
+    `${rupiah(nominal)} / ${periode.options[periode.selectedIndex].text.replace("Per ","")}`)}
 ${row(
     "Pendapatan Bulanan",
     rupiah(totalBulanan)
@@ -333,34 +332,15 @@ ${row(
 )}
 
 PENGELUARAN LAINNYA
-
-${row(
-    "Listrik / Bulan",
-    `Rp ${listrik.value || "0"}`
-)}
-
-${row(
-    "Internet / Bulan",
-    `Rp ${internet.value || "0"}`
-)}
+${row("Listrik / Bulan",`Rp ${listrik.value || "0"}`)}
+${row("Internet / Bulan",`Rp ${internet.value || "0"}`)}
 
 PENGELUARAN TAHUNAN
-
-${row(
-    "Pajak Motor / Tahun",
-    `Rp ${pajakMotor.value || "0"}`
-)}
-
-${row(
-    "Pajak PBB / Tahun",
-    `Rp ${pbb.value || "0"}`
-)}
-
+${row("Pajak Motor / Tahun",`Rp ${pajakMotor.value || "0"}`)}
+${row("Pajak PBB / Tahun",`Rp ${pbb.value || "0"}`)}
 ${row(
     "UKT / SPP / Tahun",
-    `Rp ${ukt.value || "0"}`
-)}
-
+    `Rp ${ukt.value || "0"}`)}
 ${row(
     "Acara Keluarga / Tahun",
     `Rp ${acara.value || "0"}`
