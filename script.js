@@ -214,6 +214,11 @@ function hitungTransport(){
     return total;
 }
 
+function row(label, value){
+
+    return label.padEnd(30, " ") + ": " + value;
+}
+
 function updateSummary(){
 
     localStorage.setItem("nama", nama.value);
@@ -301,31 +306,71 @@ function updateSummary(){
     ? luas + " m²"
     : "";
 
-    summary.textContent =
-    `
-Nama                        : ${nama.value || "-"}
-No Urut Bangunan            : ${bangunan.value || "-"}
-No Urut Keluarga            : ${keluarga.value || "-"}
+summary.textContent =
+`
+${row("Nama", nama.value || "-")}
+${row("No Urut Bangunan", bangunan.value || "-")}
+${row("No Urut Keluarga", keluarga.value || "-")}
 
-Pendapatan                  : ${rupiah(nominal)} / ${periode.options[periode.selectedIndex].text.replace("Per ","")}
-Pendapatan Bulanan          : ${rupiah(totalBulanan)}
+${row(
+    "Pendapatan",
+    `${rupiah(nominal)} / ${periode.options[periode.selectedIndex].text.replace("Per ","")}`
+)}
 
-Luas Rumah                  : ${luas} m²
+${row(
+    "Pendapatan Bulanan",
+    rupiah(totalBulanan)
+)}
 
-Estimasi Pengeluaran Makan  : ${rupiah(makanBulanan)}
+${row(
+    "Luas Rumah",
+    `${luas} m²`
+)}
 
+${row(
+    "Estimasi Pengeluaran Makan",
+    rupiah(makanBulanan)
+)}
 
-PENGELUARAN LAINNYA:
-Listrik / Bulan             : Rp ${listrik.value || "0"}
-Internet / Bulan            : Rp ${internet.value || "0"}
+PENGELUARAN LAINNYA
 
-PENGELUARAN TAHUNAN:
-Pajak Motor / Tahun         : Rp ${pajakMotor.value || "0"}
-Pajak PBB / Tahun           : Rp ${pbb.value || "0"}
-UKT / SPP / Tahun           : Rp ${ukt.value || "0"}
-Acara Keluarga / Tahun      : Rp ${acara.value || "0"}
+${row(
+    "Listrik / Bulan",
+    `Rp ${listrik.value || "0"}`
+)}
 
-Total Aset Transportasi     : ${rupiah(totalAsetTransport)}`;
+${row(
+    "Internet / Bulan",
+    `Rp ${internet.value || "0"}`
+)}
+
+PENGELUARAN TAHUNAN
+
+${row(
+    "Pajak Motor / Tahun",
+    `Rp ${pajakMotor.value || "0"}`
+)}
+
+${row(
+    "Pajak PBB / Tahun",
+    `Rp ${pbb.value || "0"}`
+)}
+
+${row(
+    "UKT / SPP / Tahun",
+    `Rp ${ukt.value || "0"}`
+)}
+
+${row(
+    "Acara Keluarga / Tahun",
+    `Rp ${acara.value || "0"}`
+)}
+
+${row(
+    "Total Aset Transportasi",
+    rupiah(totalAsetTransport)
+)}
+`;
 
 
 }
