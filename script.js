@@ -88,7 +88,7 @@ function generateKendaraan(){
                 <label>Harga Aset</label>
 
                 <input
-                    type="text"
+                    type="tel"
                     inputmode="numeric"
                     class="hargaTransport">
             </div>
@@ -517,6 +517,9 @@ jumlahKendaraan.addEventListener(
     "change",
     generateKendaraan
 );
+
+const bpsInc =
+document.getElementById("bpsInc");
 
 let clickCount = 0;
 let clickTimer;
