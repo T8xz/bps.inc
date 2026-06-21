@@ -89,7 +89,7 @@ function generateKendaraan(){
 
                 <input
                     type="text"
-                    inputmode="decimal"
+                    inputmode="numeric"
                     class="hargaTransport">
             </div>
 
