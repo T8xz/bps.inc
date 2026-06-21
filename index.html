@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BnC</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+    <h1 id="bpsInc">
+        <span class="eye">◉</span>
+        BPS, INC.
+    </h1>
+    </div>
+
+    <div class="card">
+
+        <h2>Data Responden</h2>
+
+        <div class="input-group">
+            <label>Nama</label>
+            <input type="text" id="nama">
+        </div>
+
+        <div class="input-group">
+            <label>No Urut Bangunan</label>
+            <input type="text" id="bangunan">
+        </div>
+
+        <div class="input-group">
+            <label>No Urut Keluarga</label>
+            <input type="text" id="keluarga">
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Pendapatan</h2>
+
+        <div class="input-group">
+            <label>Nominal Pendapatan</label>
+
+            <input
+                type="text"
+                id="harian"
+                placeholder="Contoh: 150.000">
+        </div>
+
+        <div class="input-group">
+            <label>Periode</label>
+
+            <select id="periode">
+                <option value="harian">Per Hari</option>
+                <option value="mingguan">Per Minggu</option>
+                <option value="bulanan" selected>Per Bulan</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Estimasi Pendapatan Bulanan</label>
+
+            <input
+                type="text"
+                id="bulanan"
+                readonly>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Luas Rumah</h2>
+
+        <div class="input-group">
+            <label>Panjang (meter)</label>
+
+            <input
+                type="number"
+                step="0.1"
+                id="panjang"
+                placeholder="Contoh: 12.5">
+        </div>
+
+        <div class="input-group">
+            <label>Lebar (meter)</label>
+
+            <input
+                type="number"
+                step="0.1"
+                id="lebar"
+                placeholder="Contoh: 8.2">
+        </div>
+
+        <div class="input-group">
+            <label>Luas Rumah (m²)</label>
+
+            <input
+                type="text"
+                id="luasRumah"
+                readonly>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Pengeluaran Makan</h2>
+
+        <div class="input-group">
+            <label>Pendapatan Bulanan</label>
+
+            <input
+                type="text"
+                id="referensiPendapatan"
+                readonly>
+        </div>
+
+        <div class="input-group">
+            <label>Golongan Rumah Tangga</label>
+
+            <select id="persenMakan">
+                <option value="50">(50%)</option>
+                <option value="40" selected> (40%)</option>
+                <option value="30"> (30%)</option>
+                <option value="20"> (20%)</option>
+            </select>
+        </div>
+
+        <!-- <div class="input-group">
+            <label>Persentase Pengeluaran Makan</label>
+
+            <input
+                type="text"
+                id="persenView"
+                readonly>
+        </div> -->
+
+        <div class="input-group">
+            <label>Estimasi Pengeluaran Makan</label>
+
+            <input
+                type="text"
+                id="pengeluaranMakan"
+                readonly>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Pengeluaran Lainnya</h2>
+
+        <div class="input-group">
+            <label>Listrik (per bulan)</label>
+            <input type="text" id="listrik">
+        </div>
+
+        <div class="input-group">
+            <label>Internet / WiFi (per bulan)</label>
+            <input type="text" id="internet">
+        </div>
+
+        <hr class="separator">
+
+        <div class="input-group">
+            <label>Pajak Motor (per tahun)</label>
+            <input type="text" id="pajakMotor">
+        </div>
+
+        <div class="input-group">
+            <label>Pajak PBB (per tahun)</label>
+            <input type="text" id="pbb">
+        </div>
+
+        <div class="input-group">
+            <label>UKT / SPP (per tahun)</label>
+            <input type="text" id="ukt">
+        </div>
+
+        <div class="input-group">
+            <label>Acara Keluarga (per tahun)</label>
+            <input type="text" id="acara">
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Aset Transportasi</h2>
+
+        <div class="input-group">
+            <label>Jumlah Kendaraan</label>
+
+            <select id="jumlahKendaraan">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div id="kendaraanContainer">
+
+        </div>
+
+        <div class="input-group">
+            <label>Total Nilai Aset Transportasi</label>
+
+            <input
+                type="text"
+                id="totalTransport"
+                readonly>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>SUMMARY</h2>
+
+        <div class="summary" id="summary">
+        Nama Petugas : -
+
+        No Urut Bangunan : -
+
+        No Urut Keluarga : -
+        </div>
+
+        <div class="buttons">
+            <button class="copy-btn" onclick="copySummary()">
+                📄 Copy Hasil
+            </button>
+
+            <button class="reset-btn" onclick="resetForm()">
+                🗑 Reset
+            </button>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 by T8xz
+    </footer>
+
+</div>
+
+<div id="toast"></div>
+
+<div id="resetModal" class="modal">
+
+    <div class="modal-content">
+
+        <h3>Reset Data?</h3>
+
+        <p>
+            Semua data yang telah diisi akan dihapus.
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                class="modal-cancel"
+                onclick="closeModal()">
+
+                Batal
+
+            </button>
+
+            <button
+                class="modal-reset"
+                onclick="confirmReset()">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

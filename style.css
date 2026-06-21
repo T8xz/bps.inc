@@ -1,0 +1,356 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+input[readonly]{
+    background:#081019;
+    color:#14b8a6;
+    font-weight:700;
+}
+
+select{
+    width:100%;
+
+    background:#0d131a;
+
+    color:white;
+
+    border:1px solid #26303c;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+select:focus{
+    outline:none;
+
+    border-color:var(--teal);
+
+    box-shadow:
+    0 0 0 4px rgba(20,184,166,.15);
+}
+
+option{
+    background:#12181f;
+    color:white;
+}
+
+:root{
+    --bg:#0b1014;
+    --card:#12181f;
+    --border:#202833;
+
+    --teal:#14b8a6;
+    --teal-dark:#0f766e;
+
+    --orange:#f97316;
+    --orange-dark:#ea580c;
+
+    --text:#f8fafc;
+    --muted:#94a3b8;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    padding:30px 20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.header{
+    padding:30px;
+    margin-bottom:20px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0, 255, 225, 0.08),
+        rgba(255, 106, 0, 0.08)
+    );
+
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.header h1{
+    font-size:28px;
+    font-weight:700;
+}
+
+.card{
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+}
+
+.card h2{
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+input{
+    width:100%;
+
+    background:#0d131a;
+
+    color:white;
+
+    border:1px solid #26303c;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    font-size:15px;
+
+    transition:.2s;
+}
+
+input:focus{
+    outline:none;
+
+    border-color:var(--teal);
+
+    box-shadow:
+    0 0 0 4px rgba(20,184,166,.15);
+}
+
+.summary{
+    background:#060c13;
+
+    border:1px solid rgba(20,184,166,.15);
+
+    border-radius:16px;
+
+    padding:20px;
+
+    min-height:180px;
+
+    white-space:pre-wrap;
+
+    font-family:Consolas,monospace;
+
+    line-height:1.8;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+
+    margin-top:18px;
+}
+
+button{
+    flex:1;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.copy-btn{
+    background:var(--teal);
+}
+
+.copy-btn:hover{
+    background:var(--teal-dark);
+}
+
+.reset-btn{
+    background:var(--orange);
+}
+
+.reset-btn:hover{
+    background:var(--orange-dark);
+}
+
+footer{
+    text-align:center;
+
+    color:var(--muted);
+
+    margin-top:20px;
+
+    font-size:14px;
+}
+
+#toast{
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    background:var(--teal);
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+#toast.show{
+    opacity:1;
+}
+
+@media(max-width:768px){
+
+    .buttons{
+        flex-direction:column;
+    }
+
+}
+
+input[readonly]{
+    letter-spacing:.3px;
+}
+
+.separator{
+    border:none;
+    height:1px;
+    background:#26303c;
+    margin:25px 0;
+}
+
+.sub-card{
+    margin-top:20px;
+    padding:20px;
+    border-radius:14px;
+    background:#0d131a;
+    border:1px solid #26303c;
+}
+
+.sub-card h3{
+    margin-bottom:20px;
+    color:var(--teal);
+}
+
+.header h1{
+
+    font-family:'Luckiest Guy',cursive;
+
+    font-size:72px;
+
+    letter-spacing:2px;
+
+    color:#ffa600;
+
+    text-shadow:
+        0 0 10px rgba(182,255,43,.2);
+
+    margin:0;
+}
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:9999;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+
+    width:90%;
+    max-width:380px;
+
+    background:#12181f;
+
+    border:1px solid #26303c;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+}
+
+.modal-content h3{
+    margin-bottom:10px;
+}
+
+.modal-content p{
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+.modal-buttons{
+
+    display:flex;
+    gap:10px;
+}
+
+.modal-buttons button{
+    flex:1;
+}
+
+.modal-cancel{
+    background:#334155;
+}
+
+.modal-reset{
+    background:#ef4444;
+}
