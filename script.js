@@ -216,7 +216,7 @@ function hitungTransport(){
 
 function row(label, value){
 
-    return label.padEnd(30, " ") + ": " + value;
+    return `${label.padEnd(32," ")} : ${value}`;
 }
 
 function updateSummary(){
@@ -390,7 +390,14 @@ function showToast(text){
 
 function copySummary(){
 
-    navigator.clipboard.writeText(summary.textContent);
+    const formattedText =
+`\
+\`\`\`
+${summary.textContent}
+\`\`\`
+`;
+
+    navigator.clipboard.writeText(formattedText);
 
     showToast("Berhasil dicopy");
 }
